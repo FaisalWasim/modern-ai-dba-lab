@@ -16,3 +16,9 @@ jobs:
         run: |
           echo "Listing repository contents..."
           find . | sort
+
+      - name: Validate SQL Migration Files Exist
+        run: |
+          echo "Checking migration files..."
+          ls -l migrations/
+          test -n "$(ls migrations/*.sql 2>/dev/null)"
